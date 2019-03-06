@@ -47,3 +47,25 @@ C:\Users\shamim>
 linux:
 
 docker container ls -a | grep elastic
+
+
+---------------------
+
+To remove all stopped containers use the docker container prune command:
+
+docker container prune
+
+
+The docker system prune command will remove all stopped containers, all dangling images, and all unused networks:
+
+docker system prune
+Copy
+You’ll be prompted to continue, use the -f or --force flag to bypass the prompt.
+
+WARNING! This will remove:
+        - all stopped containers
+        - all networks not used by at least one container
+        - all dangling images
+        - all build cache
+Are you sure you want to continue? [y/N]
+
