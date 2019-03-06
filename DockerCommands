@@ -1,0 +1,13 @@
+  
+docker images: this will list all the images
+
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+hello-world         latest              fce289e99eb9        2 months ago        1.84kB
+
+docker info: Display system-wide information
+
+docker ps: List containers
+
+docker login : to login with your docker id.
+
+
