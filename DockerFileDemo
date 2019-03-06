@@ -1,0 +1,29 @@
+1. create a test.py with some script:
+ sample:
+
+print(1+4)
+
+2. Create a dockerfile with name "dockerfile" and place it at a folder say c:/test
+
+
+FROM python:3
+
+ADD test.py /
+
+CMD [ "python", "./test.py" ]
+
+3. run the command 
+
+docker build dockerfile .
+
+4. now list the images
+docker images
+
+C:\Users\shamim\DockerFolder>docker images
+REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE
+dockerfile           latest              55ffa9f8c358        10 minutes ago      923MB
+
+then 
+5. docker run dockerfile
+
+this should give the output as : 5
