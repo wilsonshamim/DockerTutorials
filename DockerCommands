@@ -33,3 +33,17 @@ docker container logs 077db0b5f7d7
 or 
 
 docker  logs 077db0b5f7d7
+
+
+find a container id for a specific image
+windows:
+docker container ls -a | findstr elastic
+
+C:\Users\shamim>docker container ls -a | findstr elas
+2ca300309a80        docker.elastic.co/elasticsearch/elasticsearch:6.6.1   "/usr/local/bin/dockΓÇª"   9 minutes ago       Exited (143) About a minute ago                                  nostalgic_euler
+
+C:\Users\shamim>
+
+linux:
+
+docker container ls -a | grep elastic
