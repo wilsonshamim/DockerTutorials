@@ -1,0 +1,15 @@
+1. install docker on windows.
+2. restart system.
+3. provide user/pwd to login and start the docker service.
+4. after you have succesfully started the service, in the cmd 
+type
+docker version
+
+then 
+docker login:
+enter your docker id and pwd.
+
+then 
+docker run hello-world  
+It should now download the image.
+
