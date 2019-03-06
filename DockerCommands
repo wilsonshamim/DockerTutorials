@@ -11,3 +11,25 @@ docker ps: List containers
 docker login : to login with your docker id.
 
 
+docker container ls -a : this will list down all the containers
+
+C:\Users\shamim>docker container ls -a
+CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS                      PORTS                          NAMES
+077db0b5f7d7        flogo/flogo-docker:latest   "/tmp/flogo-web/dock…"   17 minutes ago      Exited (0) 14 minutes ago                                  laughing_bell
+55a883d68c69        hello-world                 "/hello"                 21 minutes ago      Exited (0) 21 minutes ago                                  silly_hermann
+b254ebbdad2a        ches/kafka                  "/start.sh"              3 months ago        Exited (255) 3 months ago   7203/tcp, 9092/tcp             kafka
+ad23460af4b0        zookeeper:latest            "/docker-entrypoint.…"   3 months ago        Exited (255) 3 months ago   2181/tcp, 2888/tcp, 3888/tcp   zookeeper1
+
+
+once we get the container details, we can now start the container:
+docker container start  077db0b5f7d7
+
+docker container stop  077db0b5f7d7
+
+
+to See the container logs:
+docker container logs 077db0b5f7d7
+
+or 
+
+docker  logs 077db0b5f7d7
