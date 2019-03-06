@@ -1,0 +1,21 @@
+1. run the command to list all the containers
+
+docker ps -a
+
+C:\Users\shamim\DockerFolder>docker ps -a
+CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS                        PORTS                          NAMES
+077db0b5f7d7        flogo/flogo-docker:latest   "/tmp/flogo-web/dock…"   2 hours ago         Exited (137) 38 minutes ago                                  laughing_bell
+55a883d68c69        hello-world                 "/hello"                 2 hours ago         Exited (0) 2 hours ago                                       silly_hermann
+b254ebbdad2a        ches/kafka                  "/start.sh"              3 months ago        Exited (255) 3 months ago     7203/tcp, 9092/tcp             kafka
+
+then run docker rm <container-id>
+
+docker rm 077db0b5f7d7
+
+then list images 
+docker images
+
+then delete the image using rmi
+docker rmi dockerfile
+
+
