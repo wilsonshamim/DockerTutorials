@@ -1,3 +1,78 @@
+
+
+Define a container with Dockerfile
+Dockerfile defines what goes on in the environment inside your container. Access to resources like networking interfaces and disk
+drives is virtualized inside this environment, which is isolated from the rest of your system, so you need to map ports to the 
+outside world, and be specific about what files you want to “copy in” to that environment. 
+However, after doing that, you can expect that the build of your app defined in this Dockerfile behaves exactly the same wherever 
+it runs.
+
+Dockerfile
+Create an empty directory on your local machine. Change directories (cd) into the new directory, create a file called Dockerfile, 
+copy-and-paste the following content into that file, and save it. Take note of the comments that explain each statement in
+your new Dockerfile.
+
+# Use an official Python runtime as a parent image
+FROM python:2.7-slim
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
+
+# Make port 80 available to the world outside this container
+EXPOSE 80
+
+# Define environment variable
+ENV NAME World
+
+# Run app.py when the container launches
+CMD ["python", "app.py"]
+This Dockerfile refers to a couple of files we haven’t created yet, namely app.py and requirements.txt. Let’s create those next
+
+The app itself
+Create two more files, requirements.txt and app.py, and put them in the same folder with the Dockerfile. This completes our app, which as you can see is quite simple. When the above Dockerfile is built into an image, app.py and requirements.txt is present because of that Dockerfile’s COPY command, and the output from app.py is accessible over HTTP thanks to the EXPOSE command.
+
+requirements.txt
+Flask
+Redis
+app.py
+from flask import Flask
+from redis import Redis, RedisError
+import os
+import socket
+
+# Connect to Redis
+redis = Redis(host="redis", db=0, socket_connect_timeout=2, socket_timeout=2)
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    try:
+        visits = redis.incr("counter")
+    except RedisError:
+        visits = "<i>cannot connect to Redis, counter disabled</i>"
+
+    html = "<h3>Hello {name}!</h3>" \
+           "<b>Hostname:</b> {hostname}<br/>" \
+           "<b>Visits:</b> {visits}"
+    return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=80)
+    
+    
+    Now we see that pip install -r requirements.txt installs the Flask and Redis libraries for Python, and the app prints the 
+    environment     variable NAME, as well as the output of a call to socket.gethostname(). 
+    Finally, because Redis isn’t running (as we’ve only installed the Python library, and not Redis itself), 
+    we should expect that the attempt to use it here fails and produces the error message.
+
+
 1. create a test.py with some script:
  sample:
 
