@@ -23,7 +23,11 @@ In general, VMs provide an environment with more resources than most application
 refer to dockerimage1
 
 
+In the past, if we have to run a python or java application, we first need to install python,java runtime in our machines. then we need to 
+match the same runtime in the prod. run iq/oqs. 
 
+With Docker, you can just grab a portable Python runtime as an image, no installation necessary.
+Then, your build can include the base Python image right alongside your app code, ensuring that your app, its dependencies,
+and the runtime, all travel together.
 
-
-
+These portable images are defined by something called a Dockerfile.
