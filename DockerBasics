@@ -1,0 +1,29 @@
+Docker is a platform for developers and sysadmins to devlop, deploy and run applications with container.
+
+contanierization advantage:
+Flexible: Even the most complex applications can be containerized.
+Lightweight: Containers leverage and share the host kernel.
+Interchangeable: You can deploy updates and upgrades on-the-fly.
+Portable: You can build locally, deploy to the cloud, and run anywhere.
+Scalable: You can increase and automatically distribute container replicas.
+Stackable: You can stack services vertically and on-the-fly.
+
+Image: Image is an executable package that include everything, a code, libraries, runtime env, env variables and configurations files.
+
+container: It is a runtime instance of an image. what the image become runtime memory when executed. i.e an image is a running state or 
+user process.
+
+Container VS Virtual machine:
+A container runs natively on Linux and shares the kernel of the host machine with other containers. 
+It runs a discrete process, taking no more memory than any other executable, making it lightweight.
+
+By contrast, a virtual machine (VM) runs a full-blown “guest” operating system with virtual access to host resources through a hypervisor.
+In general, VMs provide an environment with more resources than most applications need.
+
+refer to dockerimage1
+
+
+
+
+
+
