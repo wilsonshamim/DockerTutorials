@@ -35,7 +35,9 @@ CMD ["python", "app.py"]
 This Dockerfile refers to a couple of files we haven’t created yet, namely app.py and requirements.txt. Let’s create those next
 
 The app itself
-Create two more files, requirements.txt and app.py, and put them in the same folder with the Dockerfile. This completes our app, which as you can see is quite simple. When the above Dockerfile is built into an image, app.py and requirements.txt is present because of that Dockerfile’s COPY command, and the output from app.py is accessible over HTTP thanks to the EXPOSE command.
+Create two more files, requirements.txt and app.py, and put them in the same folder with the Dockerfile. This completes our app, 
+which as you can see is quite simple. When the above Dockerfile is built into an image, app.py and requirements.txt
+is present because of that Dockerfile’s COPY command, and the output from app.py is accessible over HTTP thanks to the EXPOSE command.
 
 requirements.txt
 Flask
